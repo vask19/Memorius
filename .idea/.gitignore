@@ -1,0 +1,12 @@
+/shelf/
+/workspace.xml
+/httpRequests/
+/mavenHomeManager.xml
+/dataSources/
+/dataSources.local.xml
+/target/
+*.log
+*.class
+.idea/
+*.iml
+.DS_Store
