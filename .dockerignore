@@ -1,0 +1,8 @@
+target/
+!target/memorius-1.0.0.jar
+!.mvn/
+!.mvn/wrapper/
+.DS_Store
+.idea/
+*.iml
+*.log
