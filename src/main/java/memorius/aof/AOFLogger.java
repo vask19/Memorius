@@ -1,4 +1,6 @@
-package memorius;
+package memorius.aof;
+
+import memorius.resp.RESPWriter;
 
 import java.io.*;
 
@@ -6,7 +8,7 @@ public class AOFLogger {
     private FileOutputStream fileOutput;
 
     public AOFLogger(String filename) throws IOException {
-        this.fileOutput = new FileOutputStream(filename, true); // append mode
+        this.fileOutput = new FileOutputStream(filename, true);
     }
 
     public AOFLogger() {

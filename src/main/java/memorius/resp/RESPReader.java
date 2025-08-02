@@ -1,9 +1,9 @@
-package memorius;
+package memorius.resp;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
 
-class RESPReader {
+public class RESPReader {
     private final BufferedInputStream input;
 
     public RESPReader(InputStream in) {

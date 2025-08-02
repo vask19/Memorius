@@ -1,4 +1,4 @@
-package memorius;
+package memorius.resp;
 
 import java.io.OutputStream;
 import java.io.IOException;

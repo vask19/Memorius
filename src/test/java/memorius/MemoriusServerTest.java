@@ -1,5 +1,7 @@
 package memorius;
 
+import memorius.aof.AOFLogger;
+import memorius.command.CommandProcessor;
 import org.junit.jupiter.api.*;
 
 import java.io.IOException;
@@ -14,7 +16,7 @@ public class MemoriusServerTest {
 
     @BeforeEach
     public void setUp() {
-        Map<String, String> testDB = new ConcurrentHashMap<>();
+        Map<String, MemoryValue> testDB = new ConcurrentHashMap<>();
         processor = new CommandProcessor(testDB, new AOFLoggerMock());
     }
 
