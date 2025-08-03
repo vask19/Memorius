@@ -22,13 +22,14 @@ public class Starter {
         System.out.println("[MEMORIUS-OMNISSIAH] Listening on port " + port);
 
         try {
-            memoriusServer = new MemoriusServer(commandProcessor);
             aofLoader = new AOFLoader(dataStore);
             aofLogger = new AOFLogger("appendonly.aof");
             commandProcessor = new CommandProcessor(dataStore, aofLogger);
+            memoriusServer = new MemoriusServer(commandProcessor);
 
             expirationDaemon = new ExpirationDaemon(dataStore);
             expirationDaemon.start();
+
             aofLoader.loadAOF();
             memoriusServer.startListening(port);
 

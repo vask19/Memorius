@@ -12,6 +12,11 @@ public class AOFLogger {
     }
 
     public AOFLogger() {
+        try {
+            this.fileOutput = new FileOutputStream("appendonly.aof", true);
+        } catch (IOException e) {
+            throw new RuntimeException("Failed to open AOF file", e);
+        }
     }
 
     public synchronized void append(Object[] command) throws IOException {

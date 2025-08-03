@@ -1,21 +1,43 @@
 # ⚙️ MEMORIUS
 
-> 🔴 Engine of Thought. ⚫ Java Cogitator Archive. ⚙️ Inspired by the Omnissiah.
+> Engine of Thought. Java Cogitator Archive.
 
-**Memorius** is a lightweight key-value in-memory store written in pure Java. Designed in the grim darkness of the 41st millennium, it mimics the behavior of Redis but is themed entirely around the Machine God's archives.
+**Memorius** is a lightweight in-memory key-value store written in pure Java.  
+It supports basic string and list operations, key expiration, and append-only persistence.
 
 ![memorius_logo.png](logo/memorius_logo.png)
 ---
 
 ## 🧬 Features
 
-| Ritual | Command           | Description                                  |
-|--------|-------------------|----------------------------------------------|
-| RECORD | `RECORD key val`  | Store a sacred value under a key             |
-| RETRIEVE | `RETRIEVE key`  | Access memory recorded in the cogitator      |
-| PURGE  | `PURGE key`       | Eliminate corrupted or outdated entries      |
-| EXPIATE | `EXPIATE key sec`| Mark a key to expire after X seconds         |
-| LIFESPAN | `LIFESPAN key`  | Reveal remaining life of the machine entry   |
+- Key-value string storage
+- List-type operations (push, pop, count, range)
+- Key expiration (TTL)
+- Append-only file (AOF) persistence
+- RESP protocol support (Redis protocol-compatible)
+- Simple command set
+
+---
+
+## 📜 Commands
+| Command     | Description                                           |
+|-------------|-------------------------------------------------------|
+| `OMNISSIAH` | Check server connectivity (like a ping)               |
+| `CHANT`     | Echo back the provided message                        |
+| `RECORD`    | Store a value under a key                             |
+| `RETRIEVE`  | Get the value stored under a key                      |
+| `PURGE`     | Delete one or more keys                               |
+| `EXPIATE`   | Set an expiration time (in seconds) for a key         |
+| `LIFESPAN`  | Get remaining time to live for a key (in seconds)     |
+| `FLUSH`     | Clear all keys from memory                            |
+| `EXISTS`    | Check if specified keys exist                         |
+| `TYPE`      | Get the type of value stored at a key                 |
+| `KEYS`      | Return a list of all active keys                      |
+| `APPEND`    | Prepend a value to a list stored at a key             |
+| `EXTEND`    | Add multiple values to a list                         |
+| `SUMMON`    | Remove and return the first element of a list         |
+| `COUNT`     | Return the number of items in a list                  |
+| `INVOKE`    | Return all elements of a list                         |
 
 ---
 
@@ -25,7 +47,7 @@
 - Java 17+
 - Maven 3.8+
 
-### Run server:
+### Build and start server
 ```bash
 mvn clean install
 java -jar target/memorius.jar

@@ -1,8 +1,9 @@
 package memorius;
 
+import java.io.Serializable;
 import java.util.*;
 
-public class MemoryValue {
+public class MemoryValue implements Serializable {
 
     public enum Type {
         STRING,
