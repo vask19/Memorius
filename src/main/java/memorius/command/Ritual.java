@@ -17,6 +17,7 @@ public enum Ritual {
     TYPE,           // TYPE key
     KEYS,           // KEYS *
     INVOKE,
+    BANISH,
     UNKNOWN;
 
     public static Ritual from(String name) {

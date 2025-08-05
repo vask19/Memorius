@@ -280,6 +280,33 @@ public class CommandProcessor {
                 yield new ArrayList<>(list);
             }
 
+            //remove element from list
+            case BANISH -> {
+                if (array.length < 3)
+                    yield "ERR banish requires key and value";
+                String key = array[1].toString();
+                String value = array[2].toString();
+
+                MemoryValue mv = database.get(key);
+                if (mv == null || mv.isExpired()) {
+                    database.remove(key);
+                    yield "0";
+                }
+
+                if (mv.getType() != MemoryValue.Type.LIST) {
+                    yield "ERR not a list";
+                }
+
+                List<String> list = mv.asList();
+                int before = list.size();
+                list.removeIf(v -> v.equals(value));
+                int removed = before - list.size();
+
+                if (removed > 0) {
+                    aofLogger.append(array);
+                }
+                yield String.valueOf(removed);
+            }
 
             default -> "ERR unknown ritual '" + cmd.toLowerCase() + "'";
         };
