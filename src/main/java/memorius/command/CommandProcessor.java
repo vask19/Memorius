@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 
 public class CommandProcessor {
 
@@ -30,7 +31,6 @@ public class CommandProcessor {
             case CHANT -> array.length < 2
                     ? "ERR insufficient devotion in 'chant'"
                     : array[1];
-
             case RECORD -> {
                 if (array.length < 3)
                     yield "ERR corrupted ritual format for 'record'";
